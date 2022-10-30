@@ -6,13 +6,13 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 09:09:23 by anboisve          #+#    #+#             */
-/*   Updated: 2022/10/30 18:29:30 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/10/30 18:32:00 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	*add_int(int *old, int size, int nb)
+static int	*add_int(int *old, int size, int nb)
 {
 	int	*new;
 
@@ -26,7 +26,7 @@ int	*add_int(int *old, int size, int nb)
 	return (new);
 }
 
-int	*find_words(char const *s, char c, int *words_nb)
+static int	*find_words(char const *s, char c, int *words_nb)
 {
 	int	*index;
 	int	i;
