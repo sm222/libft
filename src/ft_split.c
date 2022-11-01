@@ -6,13 +6,13 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 09:09:23 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/01 12:40:55 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/01 14:48:07 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-static char	**ft_i_want_to_brake_free(char **str, int *int_list)
+static char	**ft_i_want_to_break_free(char **str, int *int_list)
 {
 	int	i;
 
@@ -90,7 +90,7 @@ char	**ft_split(char const *s, char c)
 	{
 		split_txt[j] = ft_substr(s, list[i], list[i + 1] - list[i]);
 		if (!split_txt[j])
-			return (ft_i_want_to_brake_free(split_txt, list));
+			return (ft_i_want_to_break_free(split_txt, list));
 		i += 2;
 		j++;
 	}

@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 11:34:32 by anboisve          #+#    #+#             */
-/*   Updated: 2022/10/21 15:56:06 by anboisve         ###   ########.fr       */
+/*   Created: 2022/10/21 14:00:50 by anboisve          #+#    #+#             */
+/*   Updated: 2022/11/01 14:47:40 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	d;
+	void	*r;
 
-	d = ft_strlen(dst);
-	if (dstsize <= d)
-		return (dstsize + ft_strlen(src));
-	dstsize -= d + 1;
-	while (dstsize-- > 0 && *src)
-		dst[d++] = *src++;
-	dst[d] = '\0';
-	return (ft_strlen(src) + d);
+	r = malloc(count * size);
+	if (!r)
+		return (NULL);
+	ft_bzero(r, size * count);
+	return (r);
 }

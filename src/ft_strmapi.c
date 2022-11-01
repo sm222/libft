@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 14:26:34 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/01 09:42:07 by anboisve         ###   ########.fr       */
+/*   Created: 2022/10/25 18:19:44 by anboisve          #+#    #+#             */
+/*   Updated: 2022/11/01 14:48:07 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*r;
-	size_t	i;
+	int		i;
 
 	i = 0;
-	if (start < ft_strlen(s))
-		while (s[i + start] && len > i)
-			i++;
-	r = ft_calloc(i * sizeof(char) + 1, 1);
+	r = ft_strdup(s);
 	if (!r)
 		return (NULL);
-	if (start >= ft_strlen(s))
-		return (r);
-	ft_strlcpy(r, &s[start], i + 1);
+	while (r[i])
+	{
+		r[i] = f(i, r[i]);
+		i++;
+	}
 	return (r);
 }

@@ -53,9 +53,12 @@ $(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c $(INC) | $(OBJDIR)
 $(OBJDIR):
 	$(HIDE)mkdir -p $@
 
+bonus: $(NAME) $(BOBJS)
+	$(HIDE) ar -rs $^
+
 # Removes objects
 clean:
-	$(HIDE)$(RM) $(OBJS)
+	$(HIDE)$(RM) $(OBJS) $(BOBJS)
 
 # Removes objects and executables
 fclean: clean

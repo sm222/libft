@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 13:33:59 by anboisve          #+#    #+#             */
-/*   Updated: 2022/10/24 14:31:35 by anboisve         ###   ########.fr       */
+/*   Created: 2022/10/21 17:01:20 by anboisve          #+#    #+#             */
+/*   Updated: 2022/11/01 14:48:07 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
-	size_t	j;
-	char	*r;
+	int	i;
+	int	flp;
+	int	val;
 
+	val = 0;
+	flp = 1;
 	i = 0;
-	j = 0;
-	r = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
-	if (!r)
-		return (NULL);
-	while (s1[i])
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		r[i] = s1[i];
+		if (str[i] == '-')
+			flp *= -1;
 		i++;
 	}
-	while (s2[j])
-	{
-		r[i + j] = s2[j];
-		j++;
-	}
-	return (r);
+	while (str[i] >= '0' && str[i] <= '9')
+		val = val * 10 + (str[i++] - '0');
+	return (val * flp);
 }

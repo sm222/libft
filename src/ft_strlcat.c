@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 17:01:20 by anboisve          #+#    #+#             */
-/*   Updated: 2022/10/24 16:44:59 by anboisve         ###   ########.fr       */
+/*   Created: 2022/10/19 11:34:32 by anboisve          #+#    #+#             */
+/*   Updated: 2022/11/01 14:48:07 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-int	ft_atoi(const char *str)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int	i;
-	int	flp;
-	int	val;
+	size_t	d;
 
-	val = 0;
-	flp = 1;
-	i = 0;
-	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			flp *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-		val = val * 10 + (str[i++] - '0');
-	return (val * flp);
+	d = ft_strlen(dst);
+	if (dstsize <= d)
+		return (dstsize + ft_strlen(src));
+	dstsize -= d + 1;
+	while (dstsize-- > 0 && *src)
+		dst[d++] = *src++;
+	dst[d] = '\0';
+	return (ft_strlen(src) + d);
 }

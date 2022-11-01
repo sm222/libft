@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 12:57:42 by anboisve          #+#    #+#             */
-/*   Updated: 2022/10/23 13:00:40 by anboisve         ###   ########.fr       */
+/*   Created: 2022/10/21 11:32:07 by anboisve          #+#    #+#             */
+/*   Updated: 2022/11/01 14:48:07 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+char	*ft_strchr(const char *s, int c)
 {
-	write(fd, &c, 1);
+	int		i;
+	int		n;
+
+	i = 0;
+	n = ft_strlen(s);
+	while (i <= n)
+	{
+		if (((char *)s)[i] == (unsigned char)c)
+			return (((char *)s) + i);
+		i++;
+	}
+	return (NULL);
 }

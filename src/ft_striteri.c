@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 09:46:35 by anboisve          #+#    #+#             */
-/*   Updated: 2022/10/26 13:42:23 by anboisve         ###   ########.fr       */
+/*   Created: 2022/10/25 18:45:20 by anboisve          #+#    #+#             */
+/*   Updated: 2022/11/01 14:48:07 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	const char	*s;
-	char		*d;
+	unsigned int	i;
 
-	d = dst;
-	s = src;
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	if (s < d)
+	i = 0;
+	while (s[i])
 	{
-		d += len;
-		s += len;
-		while (len-- > 0)
-			*--d = *--s;
+		f(i, &s[i]);
+		i++;
 	}
-	else
-	{
-		while (len-- > 0)
-			*d++ = *s++;
-	}
-	return (dst);
 }
