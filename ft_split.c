@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 09:09:23 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/01 11:19:43 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/01 12:40:55 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static char	**ft_i_want_to_brake_free(char **str, int *int_list)
 	i = 0;
 	while (str[i])
 		free(str[i++]);
-	if (str)
-		free(str);
+	free(str);
 	if (int_list)
 		free(int_list);
 	return (NULL);
@@ -47,15 +46,15 @@ static int	*find_words(char const *s, char c, int *words_nb)
 	int	i;
 	int	index_s;
 
+	index = NULL;
 	*words_nb = 0;
 	index_s = 0;
 	i = 0;
-	index = NULL;
 	while (s[i])
 	{
 		if (((s[i] == c && s[i + 1] != c) && s[i + 1]) || (i == 0 && s[0] != c))
 		{
-			if (i != 0)
+			if (i != 0 || s[0] == c)
 				i++;
 			index = add_int(index, index_s++, i);
 			while (s[i] && s[i] != c)
@@ -78,6 +77,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
+	if (!s)
+		return (NULL);
 	words_nb = 0;
 	j = 0;
 	i = 0;
@@ -96,19 +97,3 @@ char	**ft_split(char const *s, char c)
 	free(list);
 	return (split_txt);
 }
-
-int	main(void)
-{
-	char	**p;
-	int		i;
-
-	i = 0;
-	p = ft_split("aw wad  split", ' ');
-	while (p[i])
-	{
-		printf("%s\n", p[i]);
-		i++;
-	}
-	return (0);
-}
-
