@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:07:18 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/02 13:28:54 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:35:09 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,15 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 
-//bonus
+//bonus-------------------
+
 void	test(void);
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+t_list	*ft_lstnew(void *content);
 
 #endif // LIBFT_H

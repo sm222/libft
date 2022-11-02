@@ -62,7 +62,9 @@ SRCS	=	ft_atoi.c\
 			ft_toupper.c
 
 # BSources are all .c files
-BSRCS	=	ft_test.c
+BSRCS	=	ft_test.c\
+			ft_lstnew.c
+
 
 
 #------------------------------------------------------------------------------#
@@ -72,18 +74,15 @@ BSRCS	=	ft_test.c
 all: $(NAME)
 
 # Generates output file
-$(NAME):: $(OBJS)
+$(NAME): $(OBJS)
 	$(HIDE) ar -rcs $@ $^
 
 # Compiles sources into objects
 .c.o: $(SRCS) $(INC)
 	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(NAME)
-
-# Adds bonus files to libft.a
-$(NAME):: $(BOBJS)
-	$(HIDE) ar -rs $(NAME) $(BOBJS)
+bonus: $(BOBJS) $(OBJS)
+	$(HIDE) ar -rs $(NAME) $(BOBJS) $(OBJS)
 
 # Removes objects
 clean:

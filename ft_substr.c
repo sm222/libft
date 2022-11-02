@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 14:26:34 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/02 15:05:46 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:49:51 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*r;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	if (start < ft_strlen(s))
 		while (s[i + start] && len > i)
