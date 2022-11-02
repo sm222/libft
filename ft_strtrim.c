@@ -6,11 +6,11 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:33:50 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/01 14:48:07 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:05:49 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 //redo
 char	*ft_strtrim(char const *s1, char const *set)
 {

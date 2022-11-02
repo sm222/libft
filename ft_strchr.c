@@ -6,11 +6,11 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 11:32:07 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/01 14:48:07 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:06:14 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

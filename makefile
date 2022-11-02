@@ -5,7 +5,7 @@
 # Special variables
 DEFAULT_GOAL: all
 .DELETE_ON_ERROR: $(NAME)
-.PHONY: all bonus clean fclean re
+.PHONY: all bonus clean fclean re bonus
 # 'HIDE = @' will hide all terminal output from Make
 HIDE =
 
@@ -16,14 +16,16 @@ HIDE =
 
 # Compiler and flags
 CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra -I. -I./$(INCDIR)
+CFLAGS	=	-Wall -Werror -Wextra -I.
 RM		=	rm -f
 
-# Output file name
+# Dir and file names
 NAME	=	libft.a
+OBJS	=	$(SRCS:.c=.o)
+BOBJS	=	$(BSRCS:.c=.o)
+INC		=	libft.h
 
 # Sources are all .c files
-SRCDIR	=	./
 SRCS	=	ft_atoi.c\
 			ft_bzero.c\
 			ft_calloc.c\
@@ -59,20 +61,8 @@ SRCS	=	ft_atoi.c\
 			ft_tolower.c\
 			ft_toupper.c
 
-# Objects are all .o files
-OBJDIR	=	bin/
-OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
-
-
 # BSources are all .c files
 BSRCS	=	ft_test.c
-
-# BObjects are all .o files
-BOBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(BSRCS))
-
-# Includes are all .h files
-INCDIR	=	include/
-INC		=	$(wildcard $(INCDIR)*.h)
 
 
 #------------------------------------------------------------------------------#
@@ -82,22 +72,18 @@ INC		=	$(wildcard $(INCDIR)*.h)
 all: $(NAME)
 
 # Generates output file
-$(NAME): $(OBJS)
+$(NAME):: $(OBJS)
 	$(HIDE) ar -rcs $@ $^
 
 # Compiles sources into objects
-$(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c $(INC) | $(OBJDIR)
+.c.o: $(SRCS) $(INC)
 	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
 
-# Creates directory for binaries
-$(OBJDIR):
-	$(HIDE)mkdir -p $@
+bonus: $(NAME)
 
-bonus: $(NAME) $(BOBJS)
+# Adds bonus files to libft.a
+$(NAME):: $(BOBJS)
 	$(HIDE) ar -rs $(NAME) $(BOBJS)
-
-$(BOBJS): $(OBJDIR)%.o : $(SRCDIR)%.c $(INC)
-	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
 
 # Removes objects
 clean:

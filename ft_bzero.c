@@ -6,11 +6,11 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:48:51 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/01 14:47:13 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:06:14 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
