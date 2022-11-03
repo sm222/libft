@@ -5,7 +5,7 @@
 # Special variables
 DEFAULT_GOAL: all
 .DELETE_ON_ERROR: $(NAME)
-.PHONY: all bonus clean fclean re bonus
+.PHONY: all bonus clean fclean re
 # 'HIDE = @' will hide all terminal output from Make
 HIDE =
 
@@ -78,14 +78,14 @@ BSRCS	=	ft_lstnew.c\
 all: $(NAME)
 
 # Generates output file
-$(NAME): $(OBJS)
+$(NAME):: $(OBJS)
 	$(HIDE) ar -rcs $@ $^
 
 # Compiles sources into objects
 .c.o: $(SRCS) $(INC)
 	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(BOBJS) $(OBJS)
+bonus:: $(BOBJS) $(OBJS)
 	$(HIDE) ar -rs $(NAME) $(BOBJS) $(OBJS)
 
 # Removes objects
