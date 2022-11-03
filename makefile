@@ -62,8 +62,12 @@ SRCS	=	ft_atoi.c\
 			ft_toupper.c
 
 # BSources are all .c files
-BSRCS	=	ft_test.c\
-			ft_lstnew.c
+BSRCS	=	ft_lstnew.c\
+			ft_lstadd_front.c\
+			ft_lstsize.c\
+			ft_lstlast.c\
+			ft_lstadd_back.c\
+			ft_lstdelone.c
 
 
 
