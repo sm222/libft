@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": true,
       "externalConsole": false,
-      "cwd": "/Users/anboisve/Documents/42_cursus/libft-git",
-      "program": "/Users/anboisve/Documents/42_cursus/libft-git/build/Debug/outDebug",
+      "cwd": "/Users/anboisve/Documents/42_cursus/libft",
+      "program": "/Users/anboisve/Documents/42_cursus/libft/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb"
     }
