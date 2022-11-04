@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 11:32:07 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/02 15:06:14 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/03 19:57:51 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strchr(const char *s, int c)
 	int		i;
 	int		n;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	n = ft_strlen(s);
 	while (i <= n)

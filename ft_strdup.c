@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 11:41:52 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/02 15:06:14 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/03 20:00:13 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 char	*ft_strdup(const char *s1)
 {
 	int		i;
-	char	*r;
+	char	*new;
 
+	if (!s1)
+		return (NULL);
 	i = ft_strlen(s1);
-	r = malloc(sizeof(char) * i++ + 1);
-	if (r == 0)
+	new = malloc(sizeof(char) * i++ + 1);
+	if (!new)
 		return (NULL);
 	while (--i >= 0)
-		r[i] = s1[i];
-	return (r);
+		new[i] = s1[i];
+	return (new);
 }

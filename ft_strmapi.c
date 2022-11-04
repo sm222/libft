@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:19:44 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/02 18:05:12 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/03 23:21:11 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*r;
+	char	*new;
 	int		i;
 
 	if (!s)
 		return (NULL);
 	i = 0;
-	r = ft_strdup(s);
-	if (!r)
+	new = ft_strdup(s);
+	if (!new)
 		return (NULL);
-	while (r[i])
+	while (new[i])
 	{
-		r[i] = f(i, r[i]);
+		new[i] = f(i, new[i]);
 		i++;
 	}
-	return (r);
+	return (new);
 }

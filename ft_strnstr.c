@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 09:54:17 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/02 17:47:43 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/03 21:53:17 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 	size_t	j;
 
+	if (!haystack || !needle)
+		return (NULL);
 	i = 0;
 	if (*needle == 0)
 		return ((char *)haystack);
