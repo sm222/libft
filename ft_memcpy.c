@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 08:46:16 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/03 18:35:47 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/04 07:02:49 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	size_t	i;
 
 	if (dst == NULL || src == NULL)
-		return (NULL);
+		return (dst);
 	i = -1;
 	while (++i < n)
 		((char *)dst)[i] = ((char *)src)[i];
