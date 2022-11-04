@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:07:18 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/04 01:22:44 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/04 01:53:47 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 
 //bonus-------------------
-
-void	test(void);
 
 typedef struct s_list
 {
