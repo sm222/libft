@@ -6,11 +6,18 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 09:09:23 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/02 15:06:14 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/06 10:19:59 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	*ft_free_list(int *list)
+{
+	if (list)
+		free (list);
+	return (NULL);
+}
 
 static char	**ft_i_want_to_break_free(char **str, int *int_list)
 {
@@ -47,7 +54,6 @@ static int	*find_words(char const *s, char c, int *words_nb)
 	int	index_s;
 
 	index = NULL;
-	*words_nb = 0;
 	index_s = 0;
 	i = 0;
 	while (s[i])
@@ -65,7 +71,6 @@ static int	*find_words(char const *s, char c, int *words_nb)
 		else
 			i++;
 	}
-	index = add_int(index, index_s, -1);
 	return (index);
 }
 
@@ -84,8 +89,8 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	list = find_words(s, c, &words_nb);
 	split_txt = (char **)ft_calloc(words_nb + 1, sizeof(char *));
-	if (split_txt == NULL)
-		return (NULL);
+	if (!split_txt)
+		return (ft_free_list(list));
 	while (j < words_nb)
 	{
 		split_txt[j] = ft_substr(s, list[i], list[i + 1] - list[i]);
