@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 17:10:45 by anboisve          #+#    #+#             */
-/*   Updated: 2022/12/04 13:29:31 by anboisve         ###   ########.fr       */
+/*   Created: 2022/12/04 13:46:45 by anboisve          #+#    #+#             */
+/*   Updated: 2022/12/07 11:54:03 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putendl_fd(char *s, int fd)
+void	*ft_realloc(void *old, size_t count, size_t size)
 {
-	size_t	i;
+	void	*new;
 
-	i = ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
-	return (i + 1);
+	if (!old)
+		return (NULL);
+	new = ft_calloc(count + 1, size);
+	if (!new)
+		return (NULL);
+	ft_memcpy(new, old, count * size);
+	ft_safe_free(old);
+	return (new);
 }

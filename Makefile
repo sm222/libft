@@ -40,7 +40,8 @@ SRCS	=	ft_atoi.c\
 			ft_substr.c\
 			ft_tolower.c\
 			ft_toupper.c\
-			ft_safe_free.c
+			ft_safe_free.c\
+			ft_realloc.c
 
 OBJS	=	$(SRCS:.c=.o)
 # BSources are all .c files
@@ -55,6 +56,8 @@ BSRCS	=	ft_lstnew.c\
 			ft_lstmap.c
 
 BOBJS	=	$(BSRCS:.c=.o)
+.c.o:
+	$(CC) $(CFLAGS) -c $<  -o $@
 
 all: $(NAME)
 
@@ -80,3 +83,4 @@ fclean: clean
 
 # Removes objects and executables and remakes
 re: fclean all
+#

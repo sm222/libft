@@ -30,6 +30,9 @@
   ],
   "files.associations": {
     "*.c": "c",
-    "list_utils.h": "c"
+    "list_utils.h": "c",
+    "libft.h": "c",
+    "stdio.h": "c",
+    "sstream": "c"
   }
 }

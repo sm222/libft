@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:48:51 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/03 18:20:58 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/12/04 13:09:57 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,8 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-
 	if (!s)
 		return ;
-	i = 0;
-	while (i < n)
-	{
-		((char *)s)[i] = 0;
-		i++;
-	}
+	while (n--)
+		((char *)s)[n] = 0;
 }

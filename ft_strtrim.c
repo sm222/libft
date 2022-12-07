@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:33:50 by anboisve          #+#    #+#             */
-/*   Updated: 2022/11/02 18:03:26 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/11/17 10:17:04 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 //redo
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned int	s_i;
-	size_t			s_j;
+	size_t	s_i;
+	size_t	s_j;
 
 	if (!s1 || !set)
 		return (NULL);
