@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 09:09:23 by anboisve          #+#    #+#             */
-/*   Updated: 2022/12/07 18:26:06 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/12/08 09:15:18 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	**ft_split(char const *s, char c)
 	new = (char **)ft_calloc(nb_word(s, c) + 1, sizeof(char *));
 	if (!new)
 		return (NULL);
-	while (nb_word(s + i, c) > 0)
+	while (nb_word(s + i, c))
 	{
 		while (s[i] && s[i] == c)
 			i++;
