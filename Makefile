@@ -41,7 +41,9 @@ SRCS	=	ft_atoi.c\
 			ft_tolower.c\
 			ft_toupper.c\
 			ft_safe_free.c\
-			ft_realloc.c
+			ft_realloc.c\
+			get_next_line.c\
+			get_next_line_utils.c
 
 OBJS	=	$(SRCS:.c=.o)
 # BSources are all .c files
@@ -56,17 +58,12 @@ BSRCS	=	ft_lstnew.c\
 			ft_lstmap.c
 
 BOBJS	=	$(BSRCS:.c=.o)
-.c.o:
-	$(CC) $(CFLAGS) -c $<  -o $@
 
 all: $(NAME)
 
 # Generates output file
 $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
-
-$(OBJS): $(SRCS)
-	$(CC) $(CFLAGS) -c $(SRCS)
 
 bonus: $(BOBJS)
 	ar -rs $(NAME) $(BOBJS)
@@ -83,4 +80,3 @@ fclean: clean
 
 # Removes objects and executables and remakes
 re: fclean all
-#

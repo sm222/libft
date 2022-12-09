@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:07:18 by anboisve          #+#    #+#             */
-/*   Updated: 2022/12/04 14:20:33 by anboisve         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:59:37 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 
-//char--------verification
+//made by @sm222
+//char		\verification
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -26,12 +28,12 @@ int		ft_isalnum(int c);
 int		ft_isprint(int c);
 int		ft_isprint(int c);
 
-//char--------------modify
+//char				\modify
 
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
-//str---------manipulation
+//str												\manipulation
 
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -40,7 +42,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
-//str--------------compare
+//str															\compare
 
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
@@ -50,8 +52,9 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
-//memory------manipulation
+//memory										\manipulation
 
+void	*ft_safe_free(void *p);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_realloc(void *old, size_t count, size_t size);
@@ -61,20 +64,20 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
-//output------------------
+//output								//
 
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
 int		ft_putnbr_fd(int n, int fd);
 int		ft_putendl_fd(char *s, int fd);
 
-//conversion--------------
+//conversion							//
 
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 
-//bonus-------------------
+//bonus									//
 
 typedef struct s_list
 {
@@ -92,8 +95,21 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-//other-------------------
+//GNL									//
 
-void	*ft_safe_free(void *p);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
+
+typedef struct s_info
+{
+	char	*tmp;
+	char	*tmp2;
+	int		rv;
+	size_t	cut;
+}	t_info;
+
+char	*get_next_line(int fd);
+char	*ft_strfjoin(char *s1, char *s2);
 
 #endif
