@@ -61,10 +61,8 @@ char	**ft_split(char const *s, char c)
 {
 	char	**new;
 	size_t	i;
-	size_t	j;
 	size_t	index;
 
-	j = 0;
 	i = 0;
 	index = 0;
 	if (!s)
