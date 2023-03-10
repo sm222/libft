@@ -6,7 +6,7 @@
 /*   By: anboisve <anboisve@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:45:20 by anboisve          #+#    #+#             */
-/*   Updated: 2022/12/04 13:19:08 by anboisve         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:55:25 by anboisve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
 
-	if (!s)
+	if (!s || !f)
 		return ;
 	i = 0;
-	while (s[i++])
-		f(i, &s[i]);
+	while (s[i])
+	{
+		f(i, s + i);
+		i++;
+	}
 }

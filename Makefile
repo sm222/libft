@@ -59,17 +59,20 @@ BSRCS	=	ft_lstnew.c\
 
 BOBJS	=	$(BSRCS:.c=.o)
 
+ifdef WITH_BONUS
+OBJS_LIST = $(OBJS) $(BOBJS)
+else
+OBJS_LIST = $(OBJS)
+endif
+
 all: $(NAME)
 
-# Generates output file
-$(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+$(NAME): $(OBJS_LIST)
+	ar rcs $(NAME) $(OBJS_LIST)
 
-bonus: $(BOBJS)
-	ar -rs $(NAME) $(BOBJS)
+bonus:
+	make WITH_BONUS=1 all
 
-$(BOBJS): $(BSRCS)
-	$(CC) $(CFLAGS) -c $(BSRCS)
 # Removes objects
 clean:
 	$(RM) $(OBJS) $(BOBJS)
